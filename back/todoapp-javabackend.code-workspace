@@ -1,0 +1,68 @@
+{
+  "folders": [
+    {
+      "path": "d:\\todoapp-javabackend"
+    },
+    {
+      "path": "d:\\AI辅助编程test3\\front"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/target": true,
+      "**/node_modules": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Install Frontend Dependencies",
+        "type": "shell",
+        "command": "npm install",
+        "problemMatcher": [],
+        "group": "build",
+        "options": {
+          "cwd": "d:\\AI辅助编程test3\\front"
+        }
+      },
+      {
+        "label": "Run Frontend",
+        "type": "shell",
+        "command": "npm start",
+        "isBackground": true,
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "options": {
+          "cwd": "d:\\AI辅助编程test3\\front"
+        }
+      },
+      {
+        "label": "Run Backend",
+        "type": "shell",
+        "command": "mvn spring-boot:run",
+        "isBackground": true,
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "options": {
+          "cwd": "d:\\todoapp-javabackend"
+        }
+      },
+      {
+        "label": "Run Full Stack",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "Run Backend",
+          "Run Frontend"
+        ],
+        "group": "build"
+      }
+    ]
+  }
+}
